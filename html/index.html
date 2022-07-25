@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../dist/output.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/aa3e04ec1f.js" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    </head>
+
+    <body>
+        <div class="snap-y snap-mandatory overflow-scroll h-screen w-screen scroll-smooth">
+
+            <!--Home section - 1-->
+            <div id="home" class="h-screen bg-orange snap-end snap-always">
+                <!--navigation bar-->
+                <nav class="flex justify-between items-center px-4 font-sans">
+                   
+                    <div class="flex-none item-center mr-6">
+                        <img src="../images/logo.png" height="80" width="200">
+                    </div>
+    
+                    <div class="hidden md:flex space-x-8 flex-auto items-center text-md">
+                        <a href="#home" class="hover:text-darkblue hover:border-b-2 border-darkblue text-black transition delay-150 duration-300 ease-in-out">Home</a>
+                        <a href="#chart" class="hover:text-darkblue hover:border-b-2 text-black transition delay-150 duration-300 ease-in-out">Data Analysis</a>
+                        <a href="#chart" class="hover:text-darkblue hover:border-b-2 text-black transition delay-150 duration-300 ease-in-out">Project Approach</a>
+                        <a href="#" class="hover:text-darkblue hover:border-b-2 text-black transition delay-150 duration-300 ease-in-out">About Team</a>
+    
+                    </div>
+                    
+                    <div class="hidden md:block item-center mx-auto space-x-6">
+                        <button class="p-3 px-6 pt-2 bg-blue rounded-lg hover:bg-white transition delay-150 duration-300 ease-in-out">
+                            Group-14
+                        </button>
+                    </div>
+    
+                </nav>
+    
+                <!--home description text-->
+                <div class="container flex justify-between items-center flex-col-reverse md:flex-row px7">
+                    <div class="self-end w-1/2 p-12 font-serif font-bold">
+                        <h1 class="text-6xl pb-6">Social Media Mining</h1>
+                        <div class="pb-6 font-sans font-normal text-xl"> 
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                            Ea perferendis optio corrupti corporis beatae.
+                        </div>
+    
+                        <button class="p-3 px-6 pt-2 bg-darkblue text-blue rounded-lg hover:bg-black transition delay-150 duration-300 ease-in-out">
+                            Let's Go 
+                        </button>
+                            
+                    </div>
+                    
+                    <!--Home description image-->
+                    <img src="../images/home_Img.png" alt="data_analysis" height="100%" width="100%" >
+                </div>
+
+                <div class="container flex flex-col justify-center items-center">
+                    <p class="text-gray text-lg">Scroll down gently to continue or click the arrow </p><br>
+                    <a href="#chart"><i class="fa-solid fa-angles-down animate-bounce py-1 px-6 text-lg hover:text-darkblue transition delay-150 duration-300 ease-in-out"></i></a>
+                </div>
+    
+            </div>
+            
+            <!--Chart Section - 2 -->
+            <div id="chart" class="h-screen p-8 bg-darkblue snap-end snap-always text-white">
+                <div class="flex justify-start items-center font-sans mb6">
+                    <div class="py-6 pr-6 mr-6 text-3xl border-b-4 border-orange">Data Analysis</div>
+                </div>
+
+                <div class="flex flex-row items-center">
+                    <div class="shadow-lg overflow-hidden h-auto w-1/2">
+                        <div class="py-3">Implementing Bar chart</div>
+                        <canvas id="myBar" class="bg-white p-6 mt6 w-max max-w-xl"></canvas>
+                    </div>
+                    <div class="shadow-lg overflow-hidden w-1/2">
+                        <div class="py-3">Implementing Dougnut chart</div>
+                        <canvas id="myDoughnut" class="bg-white p-6 mt6 w-max max-w-xl h-1/3"></canvas>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="h-screen bg-black snap-end snap-always">
+                hello
+            </div>
+        </div>
+
+            <script>
+            var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+            var yValues = [55, 49, 44, 24, 15];
+            var barColors = ["red", "green","blue","orange","brown"];
+
+            new Chart("myBar", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                display: true,
+                text: "bar chart"
+                }
+            }
+            });
+
+            new Chart("myDoughnut", {
+            type: "doughnut",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+                title: {
+                display: true,
+                text: "Dougnut graph"
+                }
+            }
+            });
+            </script>
+
+    </body>
+</html>
