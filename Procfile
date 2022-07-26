@@ -1,1 +1,1 @@
-web: gunicorn wsgi:marburg
+web: gunicorn wsgi:app
