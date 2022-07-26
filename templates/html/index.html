@@ -1,140 +1,382 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{{url_for('static', filename='dist/output.css')}}" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/aa3e04ec1f.js" crossorigin="anonymous"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    </head>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-    <body>
-        <div class="snap-y snap-mandatory overflow-scroll h-screen w-screen scroll-smooth">
+  <title>Marburg Virus</title>
 
-            <!--Home section - 1-->
-            <div id="home" class="h-screen bg-orange snap-end snap-always">
-                <!--navigation bar-->
-                <nav class="flex justify-between items-center px-4 font-sans">
-                   
-                    <div class="flex-none item-center mr-6">
-                        <img src="{{url_for('static', filename='images/logo.png')}}" height="80" width="200">
-                    </div>
-    
-                    <div class="hidden md:flex space-x-8 flex-auto items-center text-md">
-                        <a href="#home" class="hover:text-darkblue hover:border-b-2 border-darkblue text-black transition delay-150 duration-300 ease-in-out">Home</a>
-                        <a href="#chart" class="hover:text-darkblue hover:border-b-2 text-black transition delay-150 duration-300 ease-in-out">Data Analysis</a>
-                        <a href="#chart" class="hover:text-darkblue hover:border-b-2 text-black transition delay-150 duration-300 ease-in-out">Project Approach</a>
-                        <a href="#" class="hover:text-darkblue hover:border-b-2 text-black transition delay-150 duration-300 ease-in-out">About Team</a>
-    
-                    </div>
-                    
-                    <div class="hidden md:block item-center mx-auto space-x-6">
-                        <button class="p-3 px-6 pt-2 bg-blue rounded-lg hover:bg-white transition delay-150 duration-300 ease-in-out">
-                            Group-14
-                        </button>
-                    </div>
-    
-                </nav>
-    
-                <!--home description text-->
-                <div class="container flex justify-between items-center flex-col-reverse md:flex-row px7">
-                    <div class="self-end w-1/2 p-12 font-serif font-bold">
-                        <h1 class="text-6xl pb-6">Data Analysis in NLP</h1>
-                        <div class="pb-6 font-sans font-normal text-xl"> 
-                            Contextual analysis of data scrapped from WHO's website about Marburg Virus with Natural Language Processing.
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{url_for('static', filename='css/responsive.css')}}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section" >
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand"   >
+            <img src="{{url_for('static', filename='images/logo.png')}}" alt="" /><span>
+              GROUP 14
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"    >
+            <span class="navbar-toggler-icon"  ></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  "  >
+                <li class="nav-item active">
+                  <a class="nav-link" href="#intro" >Introduction <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#method" > Method</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#insights" > Insights </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#summary" >Summary</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/Rquaicoo/marburg-virus/blob/main/marburg_virus.ipynb"  >Notebook</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="slider_item-detail">
+                        <div>
+                          <h1>
+                            MARBURG VIRUS <br />
+                            DISEASE
+                          </h1>
+                          <p>
+                            Contextual analysis of the marburg virus disease with Natural Language Processing.
+                            Understanding the disease and its symptoms.
+                            Data was scrapped from WHO's website and analysed with Natural Language Processing methods.
+                          </p>
                         </div>
-    
-                        <button class="p-3 px-6 pt-2 bg-darkblue text-blue rounded-lg hover:bg-black transition delay-150 duration-300 ease-in-out">
-                            Let's Go 
-                        </button>
-                            
+                      </div>
                     </div>
-                    
-                    <!--Home description image-->
-                    <img src="{{url_for('static', filename='images/home_Img.png')}}" alt="data_analysis" height="100%" width="100%" >
+                    <div class="col-md-6">
+                      <div class="slider_img-box">
+                        <div>
+                          <img src="{{url_for('static', filename='images/bat.png')}}" alt="" class="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-                <div class="container flex flex-col justify-center items-center">
-                    <p class="text-gray text-lg">Scroll down gently to continue or click the arrow </p><br>
-                    <a href="#chart"><i class="fa-solid fa-angles-down animate-bounce py-1 px-6 text-lg hover:text-darkblue transition delay-150 duration-300 ease-in-out"></i></a>
-                </div>
-    
+              </div>
             </div>
-            
-            <!--Chart Section - 2 -->
-            <div id="chart" class="h-screen p-8 bg-darkblue snap-end snap-always text-white">
-                <div class="flex justify-start items-center font-sans mb6">
-                    <div class="py-6 pr-6 mr-6 text-3xl border-b-4 border-orange">Data Analysis</div>
-                </div>
-
-                <div class="flex flex-row items-center">
-                    <div class="shadow-lg overflow-hidden h-auto w-1/2">
-                        <div class="py-3">Implementing Bar chart</div>
-                        <canvas id="myBar" class="bg-white p-6 mt6 w-max max-w-xl"></canvas>
-                    </div>
-                    <div class="shadow-lg overflow-hidden w-1/2">
-                        <div class="py-3">Implementing Dougnut chart</div>
-                        <canvas id="myDoughnut" class="bg-white p-6 mt6 w-max max-w-xl h-1/3"></canvas>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="h-screen bg-black snap-end snap-always">
-                <div class="flex flex-row items-center">
-                    <div class="shadow-lg overflow-hidden h-auto w-1/2">
-                        <div class="py-3">Most common countries</div>
-                        <img src="{{url_for('static', filename='images/keywordcloud_countries.png')}}" alt="data_analysis" height="50%" width="100%" class="h-screen/2 w-screen">
-                    </div>
-                   
-
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-            <script>
-            var xValues = ["disease", "infection", "contact", "semen", "sexual"];
-            var yValues = [15, 12, 11, 10, 8, 0];
-            var barColors = ["red", "green","blue","orange","brown"];
+    <!-- end slider section -->
+  </div>
 
-            new Chart("myBar", {
-            type: "bar",
-            data: {
-                labels: xValues,
-                datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-                }]
-            },
-            options: {
-                legend: {display: false},
-                title: {
-                display: true,
-                text: "Keywords used in Marburg Virus"
-                }
-            }
-            });
+  <!-- introduction -->
+  <section class="fruit_section layout_padding" id="intro">
+    <div class="container">
+      <h2 class="custom_heading">Introduction</h2>
+      <p class="custom_heading-text">
+        Why is the marburg virus disease important?
+      </p>
+      <div class="col layout_padding1">
+        <div class="col-md-12">
+          <div class="fruit_detail-box" style="display: flex; justify-content:center; align-content:center" >
+            <p class="mt-4 mb-5" style="display: flex; align-self:center" >
+              The virus kills an average of half of the people it infects, but the most harmful strains have killed up to 88%. Recovered persons can infect others via blood or semen for months after contracting Marburg. Even postmortem, the body of an infected individual can be contagious.
+              Given how harmful the virus is, it follows that we must take precautions to avoid getting infected. However, a lot of individuals are unaware of this virus or only know a little about it.
+              An outbreak of the disease occurred in the Ashanti Region resulting in the death of 2 people and the quarantine of 98 individuals.
+              As a result, it is imperative that we use web scraping to deliver the required information.
 
-            new Chart("myDoughnut", {
-            type: "doughnut",
-            data: {
-                labels: xValues,
-                datasets: [{
-                backgroundColor: barColors,
-                data: yValues
-                }]
-            },
-            options: {
-                title: {
-                display: true,
-                text: "Doughnut chart of keywords"
-                }
-            }
-            });
-            </script>
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </body>
+  <!-- service section -->
+
+  <section class="service_section layout_padding " id="method">
+    <div class="container">
+      <h2 class="custom_heading">Project method</h2>
+      <p class="custom_heading-text">
+        These are the steps we took to analyse the data from the website.
+      </p>
+      <div class=" layout_padding2">
+        <div class="card-deck">
+          <div class="card">
+            
+            <div class="card-body">
+              <h5 class="card-title">Data Scrapping</h5>
+              <p class="card-text">
+                Beautiful soup was used to parse the data extracted from the website as html and the content of the paragraph elements were extracted and concatenated to for one huge chunk of text.
+                Relevant data also extracted from text include links to other websites used as references on WHO’s website.
+
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            
+            <div class="card-body">
+              <h5 class="card-title">Data Preprocessing</h5>
+              <p class="card-text">
+                For the analysis to be able to perform well, the data was preprocessed using the following techniques. <br />
+                Removing numbers in square brackets and newline characters. <br />
+                <ul>
+                  <li>Lowercasing</li>
+                  <li>Removing punctuations</li>
+                  <li>Removing stopwords</li>
+                  <li>Word tokenization </li>
+                  <li>Sentence tokenization</li>
+                  <li>Lemmatization</li>
+                </ul>
+
+              </p>
+            </div>
+          </div>
+          <div class="card">
+           
+            <div class="card-body">
+              <h5 class="card-title">Contextual Data Analysis</h5>
+              <p class="card-text">
+                Data was analysed to extract keywords and some named-entities like animals and names of locations.
+                The keywords give a general idea about the MVD and some common ways of contracting the disease from other people
+                The symptoms of the MVD were also generated from the sentences in the text.
+
+              </p>
+            </div>
+          </div>
+          <div class="card">
+           
+            <div class="card-body">
+              <h5 class="card-title">Abstract Generation</h5>
+              <p class="card-text">
+                Abstractive summary was performed on the data.
+                This was done by creating a DataFrame with the sentences in the text and the corresponding length.
+                The sentences were sorted according to their length and the top 5 sentences were selected to summarize the whole chunk of text.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end service section -->
+
+  <!-- fruits section -->
+
+  <section class="fruit_section" id="insights">
+    <div class="container">
+      <h2 class="custom_heading">Insights generated</h2>
+      <p class="custom_heading-text">
+        The following insights were obtained from the data scrapped from the website after analysing the data.
+      </p>
+      <div class="row layout_padding1">
+        <div class="col-md-5">
+          <div class="fruit_detail-box">
+            <h3>
+              Keywords which describe the Marburg virus disease.
+            </h3>
+            <p class="mt-4 mb-5">
+              The following are the keywords which describe the Marburg virus disease.
+              The wordcloud was generated using the keywords extracted from the text.
+            </p>
+            
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <div class="fruit_img-box d-flex justify-content-center align-items-center">
+            <img src="{{url_for('static', filename='images/keywordcloud.png')}}" alt="" class="" width="400px" height="400px" />
+          </div>
+        </div>
+      </div>
+      <div class="row layout_padding1">
+        <div class="col-md-5">
+          <div class="fruit_detail-box">
+            <h3>
+              Modes of transmission of the Marburg Virus Disease.
+            </h3>
+            <p class="mt-4 mb-5">
+              The doughnut chart shows the top ten keywords which describe the Marburg virus disease
+              and among the keywords are the most common ways of transmission of the disease.
+            
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <div class="fruit_img-box d-flex justify-content-center ">
+            <canvas id="myDoughnut" style="width:100%;max-width:600px;height: 300px;" class="bg-white p-6 mt6 w-max max-w-xl h-1/3"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="row layout_padding1-top layout_padding-bottom">
+        <div class="col-md-5">
+          <div class="fruit_detail-box">
+            <h3>
+              Locations where the Marburg Virus Disease has occured before.
+            </h3>
+            <p class="mt-4 mb-5">
+              The wordcloud was generated using the locations where the Marburg virus disease has occured before.
+              Named-entities were extracted from the text and the wordcloud was generated using the extracted named-entities.
+            </p>
+            
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <div class="fruit_img-box d-flex justify-content-center align-items-center">
+            <img src="{{url_for('static', filename='images/keywordcloud_countries.png')}}" alt="" class="" width="400px" height="400px" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fruit_section" id="summary">
+    <div class="container">
+      <h2 class="custom_heading">Summary</h2>
+      <p class="custom_heading-text">
+        An abstract was generated by creating key-value pairs of senetences from the data scrapped from the website.
+        The top 5 sentences were then used to create the abstract.
+      </p>
+      <div class="row layout_padding2">
+        <div class="col-md-8">
+          <div class="fruit_detail-box">
+            <h3>
+              Abstract Generated
+            </h3>
+            <p class="mt-4 mb-5">
+              All Marburg survivors and their sexual partners should receive counselling to ensure safer sexual practices until their semen has twice tested negative for Marburg virus.Survivors should be provided with condoms.Marburg survivors and their sexual partners should either:abstain from all sexual practices, orobserve safer sexual practices through correct and consistent condom use until their semen has twice tested undetected (negative) for Marburg virus.Having tested undetected (negative), survivors can safely resume normal sexual practices with minimized risk of Marburg virus transmission.Male survivors of Marburg virus disease should practice safer sexual practices and hygiene for 12 months from onset of symptoms or until their semen twice tests undetected (negative) for Marburg virus.Until such time as their semen has twice tested undetected (negative) for Marburg, survivors should practice good hand and personal hygiene by immediately and thoroughly washing with soap and water after any physical contact with semen, including after masturbation. <br />
+          Transmission via contaminated injection equipment or through needle-stick injuries is associated with more severe disease, rapid deterioration, and, possibly, a higher fatality rate.Burial ceremonies that involve direct contact with the body of the deceased can also contribute in the transmission of Marburg.People remain infectious as long as their blood contains the virus.The incubation period (interval from infection to onset of symptoms) varies from 2 to 21 days.Illness caused by Marburg virus begins abruptly, with high fever, severe headache and severe malaise.<br />
+          In 2008, two independent cases were reported in travellers who had visited a cave inhabited by Rousettus bat colonies in Uganda.Initially, human MVD infection results from prolonged exposure to mines or caves inhabited by Rousettus bat colonies.Marburg spreads through human-to-human transmission via direct contact (through broken skin or mucous membranes) with the blood, secretions, organs or other bodily fluids of infected people, and with surfaces and materials.
+
+
+            </p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="row layout_padding2">
+        <div class="col-md-8">
+          <div class="fruit_detail-box">
+            <h3>
+              Relevant links extracted from the website.
+            </h3>
+            <p class="mt-4 mb-5">
+              <a href="https://www.who.int/">https://www.who.int/</a><br />
+              <a href="https://www.who.int/">https://www.who.int/</a><br />
+              <a href="https://www.afro.who.int/">https://www.afro.who.int/</a><br />
+              <a href="https://www.who.int/europe">https://www.who.int/europe</a><br />
+              <a href="https://www.who.int/westernpacific/">https://www.who.int/westernpacific/</a><br />
+              <a href="https://www.who.int/publications-detail-redirect/WHO-HSE-PED-CED-2014.05">https://www.who.int/publications-detail-redirect/WHO-HSE-PED-CED-2014.05</a>
+              <a href="https://www.who.int/publications-detail-redirect/WHO-HIS-SDS-2014.4-Rev.1">https://www.who.int/publications-detail-redirect/WHO-HIS-SDS-2014.4-Rev.1</a>
+              <a href="https://www.who.int/entity/csr/don/archive/disease/marburg_virus_disease/en/index.html">https://www.who.int/entity/csr/don/archive/disease/marburg_virus_disease/en/index.html</a>
+              <a href="https://www.who.int/topics/haemorrhagic_fevers_viral/en/index.html">https://www.who.int/topics/haemorrhagic_fevers_viral/en/index.html</a>
+              <a href="https://www.who.int/publications-detail-redirect/WHO-HIS-SDS-2014.4-Rev.1">https://www.who.int/publications-detail-redirect/WHO-HIS-SDS-2014.4-Rev.1</a>
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2022
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery-3.4.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.js')}}"></script>
+
+  <script>
+    var xValues = ["disease", "infection", "contact", "semen", "sexual"];
+    var yValues = [15, 12, 11, 10, 8, 0];
+    var barColors = ["red", "green","blue","orange","brown"];
+
+    new Chart("myBar", {
+    type: "bar",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        legend: {display: false},
+        title: {
+        display: true,
+        text: "Keywords used in Marburg Virus"
+        }
+    }
+    });
+
+    new Chart("myDoughnut", {
+    type: "doughnut",
+    data: {
+        labels: xValues,
+        datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+        }]
+    },
+    options: {
+        title: {
+        display: true,
+        text: "Doughnut chart of keywords"
+        }
+    }
+    });
+    </script>
+</body>
+
 </html>
